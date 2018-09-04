@@ -3,8 +3,14 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass
-
+  batch = []                        # Empty array for our ingredients
+  for ingredient in  recipe.keys(): # Grabbing names of the required ingredients in the recipe
+    if ingredient not in ingredients: # If ingredients doesn't have an ingredient from recipe, no batches can be made
+      return 0
+    else:
+       batch.append(ingredients[ingredient] // recipe[ingredient]) # Adds the number of batches per ingredient(s)
+       
+  return min(batch) # Returns how many batches we can make
 
 if __name__ == '__main__':
   # Change the entries of these dictionaries to test 
